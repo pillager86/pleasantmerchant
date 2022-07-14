@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Item List {% endblock %}
+{% block content %}
+    <table>
+        <tr>
+            <th>UPC</th><th>Name</th><th>Case Quantity</th>
+            <th>Case Cost</th><th>Suggested Retail</th>
+            <th>Member Price</th><th>Department</th><th>Quantity on hand</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.upc }}</td><td>{{ item.name }}</td><td>{{ item.case_qty }}</td>
+            <td>{{ item.case_cost }}</td><td>{{ item.full_price }}</td><td>{{ item.member_price }}</td>
+            <td>{{ item.get_department_display }}</td><td>{{ item.qoh }}</td>
+        </tr>
+        {% endfor %} 
+    </table>
+{% endblock %}
