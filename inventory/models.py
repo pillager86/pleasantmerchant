@@ -26,8 +26,7 @@ class Item(models.Model):
 class Order(models.Model):
     department = models.CharField(max_length=3, choices=Item.Department.choices)
     date_of_creation = models.DateField()
-    submitted = models.BooleanField()
-    date_of_submission = models.DateTimeField()
+    date_of_submission = models.DateTimeField(blank=True, null=True)
 
 class OrderEntry(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
